@@ -52,7 +52,7 @@ public class Util {
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/people?useSSL=false");
                 settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "Imthemadcat19");
+                settings.put(Environment.PASS, "root");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
@@ -74,5 +74,12 @@ public class Util {
             }
         }
         return sessionFactory;
+    }
+    public static void closeSessionFactory() {
+        try {
+            sessionFactory.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
